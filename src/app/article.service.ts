@@ -69,6 +69,10 @@ export class ArticleService {
     this.articles = this.orginalArticles.filter(item => item.title.indexOf(keyword) !== -1);
   }
 
+  filterArticles(articles: Article[], keyword: string) {
+    return articles.filter(item => item.title.indexOf(keyword) !== -1);
+  }
+
   getArticles(keyword: string): Observable<Articles> {
     return this.httpClient.get<Articles>('https://conduit.productionready.io/api/articles');
   }

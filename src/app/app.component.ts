@@ -21,17 +21,10 @@ export class AppComponent implements OnInit {
 
   constructor(private articleService: ArticleService) {
   }
+
   ngOnInit(): void {
-    this.searchArticle(this.keyword);
-  }
-
-
-  searchArticle(keyword: string){
-    // this.articleService.searchArticle(keyword);
-    // this.articles = this.articleService.articles;
-
     this.articleService
-      .getArticles(keyword)
+      .getArticles('')
       .pipe(
         map(data => data.articles)
       )
@@ -39,5 +32,11 @@ export class AppComponent implements OnInit {
         // console.log(data);
         this.articles = articles;
       });
+  }
+
+  searchArticle(keyword: string){
+    this.keyword = keyword;
+    // this.articleService.searchArticle(keyword);
+    // this.articles = this.articleService.articles;
   }
 }

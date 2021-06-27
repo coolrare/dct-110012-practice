@@ -16,7 +16,7 @@
       </a>
       <div class="info">
         <a href="profile.html" class="author">Eric Simons</a>
-        <span class="date">January 20th</span>
+        <span class="date">{{ item.createdAt | date:'yyyy-MM-dd' }}</span>
       </div>
       <button class="btn btn-outline-primary btn-sm pull-xs-right">
         <i class="ion-heart"></i> 29
