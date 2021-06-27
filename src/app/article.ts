@@ -1,3 +1,7 @@
+export interface Articles {
+  articles: Article[];
+}
+
 export interface Article {
   title: string;
   slug: string;
