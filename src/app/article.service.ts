@@ -75,5 +75,7 @@ export class ArticleService {
 
   getArticles(keyword: string): Observable<Articles> {
     return this.httpClient.get<Articles>('https://conduit.productionready.io/api/articles');
+    // 用關鍵字查 API 的方法
+    // return this.httpClient.get<Articles>(`https://conduit.productionready.io/api/articles?title=${keyword}`);
   }
 }
