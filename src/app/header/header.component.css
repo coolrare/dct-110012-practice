@@ -1,0 +1,9 @@
+.highlight {
+  color: red !important;
+}
+
+/* 代表 header.component.html 本身 (app-header) */
+/* :host {
+  display: block;
+  background-color: red;
+} */

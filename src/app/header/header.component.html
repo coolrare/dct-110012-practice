@@ -1,9 +1,49 @@
+<!-- <div *ngIf="keyword">ng-container</div>
+<ng-container *ngIf="keyword; else t2">ng-container</ng-container>
+<ng-container *ngIf="keyword; then t1; else t2"></ng-container>
+
+<ng-template #t1>ng-template1</ng-template>
+<ng-template #t2>ng-template2</ng-template>
+<ng-template #t3>ng-template3</ng-template> -->
+
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="index.html">conduit</a>
-    <input class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
-    <button class="btn btn-sm btn-primary">
+    <a class="navbar-brand"
+      [class.highlight]="isHighlight"
+      [style.font-size.px]="fontSize"
+      href="index.html">conduit</a>
+    <!-- <a class="navbar-brand"
+      [class.highlight]="isHighlight"
+      [style]="{ fontSize: fontSize + 'px' }"
+      href="index.html">conduit</a> -->
+    <!-- <a class="navbar-brand"
+      [class]="{ highlight: isHighlight }"
+      href="index.html">conduit</a> -->
+    <input
+      [(ngModel)]="keyword"
+      class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
+    <button class="btn btn-sm btn-primary" (click)="doSearch($event)">
       <i class="ion-search"></i>
     </button>
+
+    <span class="highlight">
+      <ng-container *ngIf="!keyword; else keywordNotify">請輸入查詢條件</ng-container>
+      <ng-template #keywordNotify>
+        <ng-container>輸入的文字為 {{ keyword }}</ng-container>
+      </ng-template>
+    </span>
+
+    <!-- <span class="highlight">
+      <span *ngIf="!keyword; else keywordNotify">請輸入查詢條件</span>
+      <ng-template #keywordNotify>
+        <span>輸入的文字為 {{ keyword }}</span>
+      </ng-template>
+    </span> -->
+
+    <!-- <span *ngIf="keyword" class="highlight">輸入的文字為 {{ keyword }}</span> -->
+
+    <!-- <span [style.display]="this.keyword ? 'none' : 'inline'" class="highlight">請輸入查詢條件</span> -->
+    <!-- <span *ngIf="!keyword" class="highlight">請輸入查詢條件</span> -->
+    <!-- {{ keyword }} -->
   </div>
 </nav>
